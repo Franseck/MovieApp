@@ -3,11 +3,11 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 
 const Register = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center font-second">
       <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
         <div className={`form-container mt-[5vh] w-[380px] h-[580px] `}>
           <form>
-            <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
+            <h2 className="text-third text-2xl font-extrabold text-center tracking-[0.1em] mb-3">
               Sign Up
             </h2>
             <div className="relative z-0 w-full mb-6 group">

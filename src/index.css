@@ -12,10 +12,10 @@
     @apply peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-red-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6;
   }
 }
-/** component/class bazında default olarak vermek istediğimiz stilleri component layer'da veriyoruz */
+
 @layer components {
   .btn-danger {
-    @apply focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 w-[300px] mt-[15px] dark:bg-red-main dark:hover:bg-red-700 dark:focus:ring-red-900;
+    @apply focus:outline-none text-white bg-yellow-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 w-[300px] mt-[15px] dark:bg-third dark:hover:bg-red-700 dark:focus:ring-red-900;
   }
   .btn-danger-bordered {
     @apply text-red-main hover:text-white border-2 border-red-main hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-main dark:text-red-main dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900;
@@ -105,13 +105,13 @@ body {
 /* Login Custom CSS */
 
 .custom-linear-gradient::before {
-  background: linear-gradient(0deg, transparent, #ff4b45);
+  background: linear-gradient(0deg, transparent, #d19e1d);
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
 }
 
 .custom-linear-gradient::after {
-  background: linear-gradient(0deg, transparent, #ff4b45);
+  background: linear-gradient(0deg, transparent, #1a4146);
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
   animation-delay: -3s;
