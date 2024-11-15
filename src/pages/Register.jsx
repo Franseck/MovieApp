@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import { useAuthContext } from "../context/AuthProvider";
 
 const Register = () => {
+  const{createUser} = useAuthContext();
+const [info, setInfo] = useState({
+  firstName:"",
+  lastName:"",
+  email:"",
+  password:""
+})
+
+const handleChange =(e)=> setInfo({...info,[e.target.name]:e.target.value});
+console.log(info);
+
+
+  const handleSubmit = ()=>{
+    //createUser(email,password)
+  }
   return (
     <div className="flex justify-center font-second">
       <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
@@ -12,41 +28,45 @@ const Register = () => {
             </h2>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                name="floating_text"
+                name="firstName"
                 className="peer"
                 type="text"
                 required
                 placeholder=" "
+                onChange={handleChange}
               />
               <label htmlFor="floating_text">First Name</label>
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                name="floating_text"
+                name="surName"
                 className="peer"
                 type="text"
                 required
                 placeholder=" "
+                onChange={handleChange}
               />
               <label htmlFor="floating_text">Last Name</label>
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                name="floating_email"
+                name="email"
                 className="peer"
                 type="email"
                 placeholder=" "
                 required
+                onChange={handleChange}
               />
               <label htmlFor="floating_email">Email</label>
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                name="floating_password"
+                name="password"
                 className="peer"
                 type="password"
                 placeholder=" "
                 required
+                onChange={handleChange}
               />
               <label htmlFor="floating_password">Password</label>
             </div>
