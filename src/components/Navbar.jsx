@@ -6,12 +6,13 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Link } from "react-router-dom";
-
 import avatar from "../assets/icons/avatar.png";
 import SwitchButton from "./Switch";
+import { useAuthContext } from "../context/AuthProvider";
 
 
 export default function Navbar() {
+const {logOut}= useAuthContext()
 
  const currentUser = { displayName: "Seckin" };
   // const currentUser = false;
@@ -72,7 +73,7 @@ export default function Navbar() {
   
                 
                     <MenuItem>
-                      <span
+                      <span onClick={logOut}
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-secondaryDark"
                       >
                         Log out
