@@ -1,6 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { createContext, useContext, useState } from 'react'
 import { auth } from '../auth/firebase';
+import { useNavigate } from 'react-router-dom';
+import { toastErrorNotify, toastSuccessNotify } from '../helpers/Toast';
+
 
 export const AuthContext = createContext();
 
@@ -12,13 +15,15 @@ export const useAuthContext =()=>{
 
 const AuthProvider = ({children}) => {
 const [currentUser, setCurrentUser]=useState(false)
+const navigate = useNavigate("")
 
-const createUser = async(email,password)=> {
+const createUser = async (email,password)=> {
       try { 
      let response = await createUserWithEmailAndPassword(auth, email, password)
-        console.log(response);
+        navigate("/login")
+        toastSuccessNotify("Registered Succesfully")
     } catch (error) {
-        console.log(error.message);
+        toastErrorNotify(error.message);
     }
 }
 

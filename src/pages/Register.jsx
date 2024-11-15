@@ -12,18 +12,20 @@ const [info, setInfo] = useState({
 })
 
 const handleChange =(e)=> setInfo({...info,[e.target.name]:e.target.value});
-console.log(info);
 
 
-  const handleSubmit = ()=>{
-    //createUser(email,password)
+const {email, password, firstName, surName} = info
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    createUser(email,password)
   }
   return (
     <div className="flex justify-center font-second">
       <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
         <div className={`form-container mt-[5vh] w-[380px] h-[580px] `}>
-          <form>
-            <h2 className="text-third text-2xl font-extrabold text-center tracking-[0.1em] mb-3">
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-primaryDark text-2xl font-extrabold text-center tracking-[0.1em] mb-3">
               Sign Up
             </h2>
             <div className="relative z-0 w-full mb-6 group">
