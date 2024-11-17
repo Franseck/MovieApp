@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,   onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,   onAuthStateChanged, updateProfile,signInWithPopup, GoogleAuthProvider  } from 'firebase/auth';
 import React, { createContext, useContext, useState } from 'react'
 import { auth } from '../auth/firebase';
 import { useNavigate } from 'react-router-dom';
@@ -17,10 +17,10 @@ const AuthProvider = ({children}) => {
 const [currentUser, setCurrentUser]=useState(false)
 const navigate = useNavigate("")
 
-const createUser = async (email,password)=> {
+const createUser = async (email,password, displayName, )=> {
       try { 
      let response = await createUserWithEmailAndPassword(auth, email, password);
-     updateProfile(auth.currentUser, {
+     await updateProfile(auth.currentUser, {
       displayName
     })
         navigate("/")
@@ -43,7 +43,9 @@ const signIn = async (email,password)=> {
  const logOut = () => {
     signOut(auth)
       .then(() => {
-        toastSuccessNotify("Logged out successfully");
+         toastSuccessNotify("Logged out successfully");
+        navigate("/login");
+ 
       })
       .catch((error) => {
                 toastErrorNotify(error.message);
@@ -63,8 +65,20 @@ const signIn = async (email,password)=> {
     });
   };
 
+const googleProvider =()=>{
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+  .then((result) => {
+   navigate("/")
+   toastSuccessNotify("Logged in Successfully")
 
-    const values ={currentUser, createUser, signIn, logOut, userObserver};
+  }).catch((error) => {
+toastErrorNotify(error.message)
+
+  });
+}
+
+    const values ={currentUser, createUser, signIn, logOut, userObserver, googleProvider};
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
   
 }

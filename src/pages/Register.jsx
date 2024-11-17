@@ -3,7 +3,7 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuthContext } from "../context/AuthProvider";
 
 const Register = () => {
-  const{createUser} = useAuthContext();
+  const{createUser, googleProvider} = useAuthContext();
 const [info, setInfo] = useState({
   firstName:"",
   lastName:"",
@@ -17,7 +17,7 @@ const handleChange =(e)=> setInfo({...info,[e.target.name]:e.target.value});
 const {email, password, firstName, surName} = info
 
   const handleSubmit = (e)=>{
-    const displayName = `${firstName} ${lastName}`
+    const displayName = `${firstName} ${surName}`
     e.preventDefault()
     createUser(email,password, displayName)
   }
@@ -76,7 +76,8 @@ const {email, password, firstName, surName} = info
             <button className="btn-danger" type="submit">
               Register
             </button>
-            <button
+            <button 
+            onClick={googleProvider}
               className="flex justify-between text-center items-center btn-danger"
               type="button"
             >

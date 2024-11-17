@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const{signIn} = useAuthContext();
+  const{signIn, googleProvider} = useAuthContext();
 const [info, setInfo] = useState({
   
   email:"",
@@ -57,6 +57,7 @@ const {email, password} = info
               Login
             </button>
             <button
+            onClick={googleProvider}
               className="flex justify-between text-center items-center btn-danger"
               type="button"
             >
