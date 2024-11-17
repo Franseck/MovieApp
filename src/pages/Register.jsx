@@ -17,8 +17,9 @@ const handleChange =(e)=> setInfo({...info,[e.target.name]:e.target.value});
 const {email, password, firstName, surName} = info
 
   const handleSubmit = (e)=>{
+    const displayName = `${firstName} ${lastName}`
     e.preventDefault()
-    createUser(email,password)
+    createUser(email,password, displayName)
   }
   return (
     <div className="flex justify-center font-second">
