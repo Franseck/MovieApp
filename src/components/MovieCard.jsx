@@ -20,13 +20,13 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
     }
   };
   return (
-    <div className="movie" onClick={() => navigate("/details/" + id)}>
+    <div className="movie font-general" onClick={() => navigate("/details/" + id)}>
       <img
         loading="lazy"
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
       />
-      <div className="flex align-baseline justify-between p-1 text-white">
+      <div className="flex align-baseline justify-between p-1 text-tex">
         <h5>{title}</h5>
         {currentUser && (
           <span className={`tag ${getVoteClass()}`}>

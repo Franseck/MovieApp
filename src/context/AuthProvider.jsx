@@ -33,8 +33,10 @@ const createUser = async (email,password, displayName, )=> {
 const signIn = async (email,password)=> {
       try { 
      let response = await signInWithEmailAndPassword (auth, email, password)
+  toastSuccessNotify("logged in Succesfully")
         navigate("/login")
-        toastSuccessNotify("Registered Succesfully")
+
+      
     } catch (error) {
         toastErrorNotify(error.message);
     }
