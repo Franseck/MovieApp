@@ -34,9 +34,9 @@ const signIn = async (email,password)=> {
       try { 
      let response = await signInWithEmailAndPassword (auth, email, password)
   toastSuccessNotify("logged in Succesfully")
-        navigate("/login")
+        navigate("/")
 
-      
+        setCurrentUser(true);
     } catch (error) {
         toastErrorNotify(error.message);
     }

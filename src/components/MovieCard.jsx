@@ -26,9 +26,9 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
       />
-      <div className="flex align-baseline justify-between p-1 text-tex">
+      <div className="flex align-baseline justify-between p-1 text-tex ">
         <h5>{title}</h5>
-        {currentUser && (
+        {(
           <span className={`tag ${getVoteClass()}`}>
             {vote_average.toFixed(1)}
           </span>
