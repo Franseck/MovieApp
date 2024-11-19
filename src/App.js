@@ -7,7 +7,7 @@ import MovieProvider from "./context/MovieProvider";
 
 const App = () => {
   return (
-<div className="dark:bg-gray-dark-main min-h-screen">
+<div className="bg-fifth dark:bg-gray-dark-main min-h-screen">
       <AuthProvider>
 <MovieProvider>
         <AppRouter />

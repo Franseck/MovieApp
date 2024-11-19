@@ -40,7 +40,7 @@ const {email, password} = info
                 required
                 onChange={handleChange}
               />
-              <label htmlFor="floating_email">Email</label>
+              <label htmlFor="floating_email">Email : test@test.com</label>
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
@@ -51,7 +51,7 @@ const {email, password} = info
                 required
                 onChange={handleChange}
               />
-              <label htmlFor="floating_password">Password</label>
+              <label htmlFor="floating_password">Password : 123456</label>
             </div>
             <button className="btn-danger" type="submit">
               Login
