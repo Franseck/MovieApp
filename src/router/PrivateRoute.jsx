@@ -1,11 +1,20 @@
-import React from "react";
-import { useAuthContext } from "../context/AuthProvider";
-import { Navigate, Outlet } from "react-router-dom";
+
+import { Outlet,Navigate } from 'react-router-dom'
 
 const PrivateRouter = () => {
-  const { currentUser } = useAuthContext();
+  const currentUser = sessionStorage.getItem("currentUser")
 
-  return currentUser ? <Outlet /> : <Navigate replace to="/login" />;
-};
+  return  (
+    currentUser ? (
+        <>
+        <Outlet />
+        </>
 
-export default PrivateRouter;
+    ) :  (
+     
+       <Navigate to="/login"  />)
+   
+  )
+}
+
+export default PrivateRouter
