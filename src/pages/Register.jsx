@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuthContext } from "../context/AuthProvider";
 
@@ -14,10 +14,10 @@ const [info, setInfo] = useState({
 const handleChange =(e)=> setInfo({...info,[e.target.name]:e.target.value});
 
 
-const {email, password, firstName, surName} = info
+const {email, password, firstName, lastName} = info
 
   const handleSubmit = (e)=>{
-    const displayName = `${firstName} ${surName}`
+    const displayName = `${firstName} ${lastName}`
     e.preventDefault()
     createUser(email,password, displayName)
   }
@@ -42,7 +42,7 @@ const {email, password, firstName, surName} = info
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                name="surName"
+                name="lastName"
                 className="peer"
                 type="text"
                 required

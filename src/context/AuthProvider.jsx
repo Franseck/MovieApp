@@ -15,7 +15,7 @@ export const useAuthContext =()=>{
 
 const AuthProvider = ({children}) => {
 const [currentUser, setCurrentUser]=useState(false)
-const navigate = useNavigate("")
+const navigate = useNavigate()
 
 const createUser = async (email,password, displayName, )=> {
       try { 
@@ -33,8 +33,9 @@ const createUser = async (email,password, displayName, )=> {
 const signIn = async (email,password)=> {
       try { 
      let response = await signInWithEmailAndPassword (auth, email, password)
+           navigate("/")
   toastSuccessNotify("logged in Succesfully")
-        navigate("/")
+  
 
         setCurrentUser(true);
     } catch (error) {
