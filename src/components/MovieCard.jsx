@@ -1,5 +1,4 @@
 import React from "react";
-import { useAuthContext } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
