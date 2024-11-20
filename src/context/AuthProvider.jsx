@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,   onAuthStateChanged, updateProfile,signInWithPopup, GoogleAuthProvider  } from 'firebase/auth';
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import { auth } from '../auth/firebase';
 import { useNavigate } from 'react-router-dom';
 import { toastErrorNotify, toastSuccessNotify } from '../helpers/Toast';
@@ -16,6 +16,11 @@ export const useAuthContext =()=>{
 const AuthProvider = ({children}) => {
 const [currentUser, setCurrentUser]=useState(false)
 const navigate = useNavigate()
+
+useEffect(() => {
+  userObserver();
+}, []);
+
 
 const createUser = async (email,password, displayName, )=> {
       try { 
